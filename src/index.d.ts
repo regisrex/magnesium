@@ -1,5 +1,5 @@
 export { default as ChalkBoard } from './ChalkBoard.js';
-export type { ChalkBoardProps, ChalkBoardHandle, ChalkBoardMode } from './ChalkBoard.js';
+export type { ChalkBoardProps, ChalkBoardHandle, ChalkBoardMode, ChalkBoardCursor, CursorRenderer } from './ChalkBoard.js';
 
 export { default as BoardWriter } from './BoardWriter.js';
 export type {

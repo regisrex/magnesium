@@ -57,7 +57,7 @@ function Lesson() {
 
 ## Props
 
-`width`/`height` (default 1920×1080, board coordinates), `board` (`green` | `black` | `plain`), `chalk`, `avoid` (text/math avoid existing chalk, default true), `size`, `color`, `speed`, `font`, `showPen`, `showOccupancy`, `mode` (`none` | `place` — click sets the pen | `draw` — freehand chalk for a human), `onReady(handle)`, `onIdle()`, `onError(e)`, `className`, `style`.
+`width`/`height` (default 1920×1080, board coordinates), `board` (`green` | `black` | `plain`), `chalk`, `avoid` (text/math avoid existing chalk, default true), `size`, `color`, `speed`, `font`, `showPen`, `showOccupancy`, `cursor` (`ring` default | `hand` — a writing-hand emoji | `none` | `(ctx, tip, pen) => void` for a fully custom pen indicator), `mode` (`none` | `place` — click sets the pen | `draw` — freehand chalk for a human), `onReady(handle)`, `onIdle()`, `onError(e)`, `className`, `style`.
 
 ## Wiring an agent
 

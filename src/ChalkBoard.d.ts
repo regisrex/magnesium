@@ -4,6 +4,9 @@ import type { BoardCommand, BoardState, FindFreeOptions, FreeSpot } from './Boar
 
 export type ChalkBoardMode = 'none' | 'place' | 'draw';
 
+export type CursorRenderer = (ctx: CanvasRenderingContext2D, tip: { x: number; y: number }, pen: { size: number; color: string }) => void;
+export type ChalkBoardCursor = 'ring' | 'hand' | 'none' | CursorRenderer;
+
 export interface ChalkBoardProps {
   width?: number;
   height?: number;
@@ -18,6 +21,7 @@ export interface ChalkBoardProps {
   loadMathJax?: boolean;
   showPen?: boolean;
   showOccupancy?: boolean;
+  cursor?: ChalkBoardCursor;
   mode?: ChalkBoardMode;
   onReady?: (handle: ChalkBoardHandle) => void;
   onIdle?: () => void;

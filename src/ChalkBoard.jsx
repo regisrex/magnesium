@@ -12,6 +12,7 @@ const ChalkBoard = forwardRef(function ChalkBoard(props, ref) {
     width = 1920, height = 1080, board = 'green', chalk = true, avoid = true,
     size = 36, color = 'white', speed = 1, font = 'Kalam, cursive', loadFont = true, loadMathJax = true,
     showPen = true, showOccupancy = false, mode = 'none',        // mode: 'none' | 'place' | 'draw'
+    cursor = 'ring',                                              // 'ring' | 'hand' | 'none' | (ctx, tip, pen) => void
     onReady, onIdle, onError, className, style
   } = props;
 
@@ -31,10 +32,19 @@ const ChalkBoard = forwardRef(function ChalkBoard(props, ref) {
         g.fillStyle = 'rgba(255,80,80,0.28)';
         for (let r = 0; r < b.rows; r++) for (let c = 0; c < b.cols; c++) if (b.occ[r * b.cols + c]) g.fillRect(c * b.cell, r * b.cell, b.cell, b.cell);
       }
-      if (showPen) {
+      if (showPen && cursor !== 'none') {
         const t = b.tip;
-        g.strokeStyle = 'rgba(255,255,255,0.75)'; g.lineWidth = 2; g.beginPath(); g.arc(t.x, t.y, 6, 0, 7); g.stroke();
-        g.fillStyle = b.pen.color; g.beginPath(); g.arc(t.x, t.y, 2.5, 0, 7); g.fill();
+        if (typeof cursor === 'function') {
+          cursor(g, t, b.pen);
+        } else if (cursor === 'hand') {
+          const fs = Math.max(30, b.pen.size * 1.35);
+          g.font = `${fs}px system-ui, "Apple Color Emoji", "Segoe UI Emoji", sans-serif`;
+          g.textAlign = 'center'; g.textBaseline = 'middle';
+          g.fillText('✍️', t.x + fs * 0.32, t.y - fs * 0.32);
+        } else {
+          g.strokeStyle = 'rgba(255,255,255,0.75)'; g.lineWidth = 2; g.beginPath(); g.arc(t.x, t.y, 6, 0, 7); g.stroke();
+          g.fillStyle = b.pen.color; g.beginPath(); g.arc(t.x, t.y, 2.5, 0, 7); g.fill();
+        }
       }
       raf.current = requestAnimationFrame(draw);
     };
