@@ -1,0 +1,19 @@
+{
+  "name": "@regisrex/magnesium",
+  "version": "0.1.0",
+  "description": "A chalkboard React component that AI agents write on: animated handwriting, LaTeX, shapes, and awareness of what is already drawn.",
+  "type": "module",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": { ".": { "types": "./src/index.d.ts", "default": "./src/index.js" } },
+  "files": ["src", "README.md", "LICENSE"],
+  "scripts": { "typecheck": "tsc --noEmit" },
+  "peerDependencies": { "react": ">=17", "@types/react": ">=17" },
+  "peerDependenciesMeta": { "@types/react": { "optional": true } },
+  "devDependencies": { "@types/react": "^18.0.0", "typescript": "^5.4.0" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/regisrex/magnesium.git" },
+  "bugs": { "url": "https://github.com/regisrex/magnesium/issues" },
+  "homepage": "https://github.com/regisrex/magnesium#readme",
+  "publishConfig": { "access": "public" }
+}
