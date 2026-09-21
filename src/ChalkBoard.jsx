@@ -87,7 +87,7 @@ const ChalkBoard = forwardRef(function ChalkBoard(props, ref) {
 
   const layer = { position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' };
   return (
-    <div className={className} style={{ position: 'relative', aspectRatio: `${width} / ${height}`, ...style }}>
+    <div className={className} style={{ position: 'relative', width: '100%', aspectRatio: `${width} / ${height}`, ...style }}>
       <canvas ref={canvasRef} width={width} height={height} style={layer} />
       <canvas ref={overlayRef} width={width} height={height} style={{ ...layer, touchAction: 'none', cursor: mode === 'place' ? 'crosshair' : mode === 'draw' ? 'cell' : 'default' }}
         onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp} />

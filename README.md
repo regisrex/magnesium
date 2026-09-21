@@ -1,6 +1,12 @@
 # @regisrex/magnesium
 
+[![npm](https://img.shields.io/npm/v/@regisrex/magnesium)](https://www.npmjs.com/package/@regisrex/magnesium)
+[![CI](https://github.com/regisrex/magnesium/actions/workflows/ci.yml/badge.svg)](https://github.com/regisrex/magnesium/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@regisrex/magnesium)](LICENSE)
+
 A chalkboard component that an AI agent writes on. Handwriting appears stroke by stroke, LaTeX renders as chalk (chemistry via `\ce{}`), shapes are drawn with the chalk visibly travelling, and the board knows what is already on it so text steps down to free space instead of overwriting.
+
+https://github.com/regisrex/magnesium/raw/main/sample.mp4
 
 ```
 npm install @regisrex/magnesium
